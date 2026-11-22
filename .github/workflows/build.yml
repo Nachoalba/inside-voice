@@ -29,20 +29,32 @@ jobs:
         run: python -m pytest
 
       - name: "Selftest from source (monitors, overlay windows, settings window)"
-        continue-on-error: true
         run: python -m inside_voice --selftest
 
       - name: Build InsideVoice.exe
         run: python -m PyInstaller --noconfirm inside-voice.spec
 
       - name: Selftest of the built exe
-        continue-on-error: true
         shell: pwsh
         run: |
           $p = Start-Process -FilePath dist\InsideVoice\InsideVoice.exe -ArgumentList '--selftest','--out','selftest-exe.txt' -Wait -PassThru
           if (Test-Path selftest-exe.txt) { Get-Content selftest-exe.txt } else { Write-Host "no selftest output" }
           Write-Host "exit code: $($p.ExitCode)"
           if ($p.ExitCode -ne 0) { exit 1 }
+
+      - name: Idle footprint of the built exe (tray only; informational, no microphone on the runner)
+        continue-on-error: true
+        shell: pwsh
+        run: |
+          $dir = Join-Path $env:APPDATA "InsideVoice"
+          New-Item -ItemType Directory -Force $dir | Out-Null
+          '{"calibrated": true}' | Set-Content (Join-Path $dir "config.json")
+          $p = Start-Process -FilePath dist\InsideVoice\InsideVoice.exe -ArgumentList '--minimized' -PassThru
+          Start-Sleep -Seconds 12
+          $p.Refresh()
+          Write-Host ("{0:N1} MB working set, {1:N2} s CPU in 12 s" -f ($p.WorkingSet64/1MB), $p.TotalProcessorTime.TotalSeconds)
+          Write-Host ("exited early: {0}" -f $p.HasExited)
+          if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
 
       - name: Get version
         id: ver
