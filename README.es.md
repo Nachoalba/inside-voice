@@ -67,8 +67,8 @@ Para desarrollar: `pip install -r requirements-dev.txt`, `python -m inside_voice
 `python -m inside_voice --selftest` comprueba traducciones, dibujo, monitores, ventanas del aviso y la ventana de
 configuración sin necesitar micrófono.
 
-GitHub Actions (`.github/workflows/build.yml`) hace lo mismo en cada subida y adjunta el instalador a una release
-cuando subes una etiqueta como `v0.1.0`.
+GitHub Actions (`.github/workflows/build.yml`) hace lo mismo en cada subida y publica el instalador como release
+con el nombre de la versión de `inside_voice/__init__.py` (súbela para publicar una versión nueva).
 
 ## Cómo funciona
 
