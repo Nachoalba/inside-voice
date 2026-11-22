@@ -88,8 +88,29 @@ licencia y su código fuente disponible.
 
 Windows puede mostrar el aviso de *SmartScreen* ("Windows protegió su PC") con descargas nuevas sin firmar. Pulsa
 **Más información → Ejecutar de todos modos**. Las versiones las compila automáticamente GitHub Actions a partir del
-código de este repositorio y no contienen nada más. Se está solicitando la firma gratuita a la SignPath Foundation;
-esta sección describirá la política de firma cuando se apruebe.
+código de este repositorio (ver `.github/workflows/build.yml`) y no contienen nada más.
+
+Se está solicitando la firma gratuita a la SignPath Foundation. Cuando se apruebe, las versiones firmadas de Windows
+llevarán este aviso:
+
+> Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
+
+**Roles del equipo** (un solo mantenedor con todos los roles):
+
+| Rol | Miembro |
+| --- | --- |
+| Autores (acceso para modificar el código) | [Nachoalba](https://github.com/Nachoalba) |
+| Revisores (revisan las aportaciones de otros) | [Nachoalba](https://github.com/Nachoalba) |
+| Aprobadores (aprueban cada solicitud de firma) | [Nachoalba](https://github.com/Nachoalba) |
+
+Solo se firman artefactos compilados desde este repositorio y cada versión se aprueba manualmente.
+
+## Privacidad
+
+Inside Voice procesa el audio del micrófono **solo en local y en memoria**. No graba, no guarda ni envía audio, y no
+tiene funciones de red, telemetría ni comprobación de actualizaciones. Los ajustes se guardan en un archivo local en
+`%APPDATA%\InsideVoice`. Solo abre una página web cuando pulsas el botón opcional del café, que abre el enlace de
+Ko-fi en tu navegador.
 
 ## Apoyo
 

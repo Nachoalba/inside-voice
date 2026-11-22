@@ -99,8 +99,28 @@ with its source code available.
 
 Windows may show a *SmartScreen* warning ("Windows protected your PC") with new, unsigned downloads. Click
 **More info → Run anyway**. Releases are built automatically by GitHub Actions from the source in this repository
-and contain nothing else. Free code signing is being requested from the SignPath Foundation; this section will
-describe the signing policy once it is approved.
+(see `.github/workflows/build.yml`) and contain nothing else.
+
+Free code signing is being requested from the SignPath Foundation. Once approved, signed Windows releases will carry
+this notice:
+
+> Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
+
+**Team roles** (one maintainer holds all roles):
+
+| Role | Member |
+| --- | --- |
+| Authors (commit access) | [Nachoalba](https://github.com/Nachoalba) |
+| Reviewers (review contributions from others) | [Nachoalba](https://github.com/Nachoalba) |
+| Approvers (approve every signing request) | [Nachoalba](https://github.com/Nachoalba) |
+
+Only artifacts built from this repository are signed, and each release is approved manually.
+
+## Privacy
+
+Inside Voice processes microphone audio **locally and in memory only**. It never records, stores or sends audio, and it
+has no network features, telemetry or update checks. Settings are kept in a local file in `%APPDATA%\InsideVoice`.
+The only time it opens a web page is when you click the optional coffee button, which opens the Ko-fi link in your browser.
 
 ## Support
 
