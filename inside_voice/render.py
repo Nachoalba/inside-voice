@@ -58,7 +58,7 @@ def _profile(style: str, t: int) -> np.ndarray:
     elif style == "gradient":
         prof = 1.0 - x
     else:  # glow: soft, quick fall-off
-        prof = (1.0 - x) ** 2.2
+        prof = (1.0 - x) ** 1.6
     prof[t] = 0.0
     prof = np.clip(prof, 0.0, 1.0)
     return np.round(prof * 255.0).astype(np.uint8)

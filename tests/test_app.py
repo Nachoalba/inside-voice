@@ -64,7 +64,7 @@ def test_selected_monitors_and_fallback(app):
 
 def test_thickness_scales_per_monitor(app):
     targets = app.targets_for(app.cfg, 1)
-    assert targets[0].thickness_px == 24       # 1080p reference
+    assert targets[0].thickness_px == 36       # 1080p reference (level 1 default)
 
 
 def test_preview_overrides_and_restores(app):

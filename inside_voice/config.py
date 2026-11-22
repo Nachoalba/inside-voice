@@ -75,10 +75,10 @@ class LevelStyle:
 
 def default_levels() -> List[LevelStyle]:
     return [
-        LevelStyle("#FFC800", 24, 45, 1.0),
-        LevelStyle("#FF7A00", 40, 65, 1.8),
-        LevelStyle("#FF1E1E", 60, 85, 2.6),
-        LevelStyle("#FF0033", 80, 95, 3.6),
+        LevelStyle("#FFC800", 36, 55, 1.0),
+        LevelStyle("#FF7A00", 60, 72, 1.8),
+        LevelStyle("#FF1E1E", 90, 88, 2.6),
+        LevelStyle("#FF0033", 120, 96, 3.6),
     ]
 
 

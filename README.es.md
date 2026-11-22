@@ -8,6 +8,12 @@ más fuerte hablas. Como el aviso es visual, no molesta ni a tu juego ni a tu ch
 
 > *Chitón, que te oyen.*
 
+## Cómo se ve el aviso
+
+<img src="assets/preview.png" alt="Simulación de los niveles de aviso 1, 2 y 3">
+
+*(Simulación. El borde real se dibuja sobre tu pantalla; su aspecto es totalmente configurable.)*
+
 ## Qué hace
 
 - **Aviso progresivo**: de 2 a 4 niveles. Cuanto más alto hablas, más grueso, opaco y rápido es el borde.

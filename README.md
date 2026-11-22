@@ -8,6 +8,12 @@ Because the warning is visual, it does not disturb your game or your voice chat.
 
 > *Shh... they can hear you.*
 
+## What the alert looks like
+
+<img src="assets/preview.png" alt="Simulation of alert levels 1, 2 and 3">
+
+*(Simulation. The real border is drawn over your screen; its look is fully configurable.)*
+
 ## Features
 
 - **Progressive alert**: 2 to 4 levels. The louder you are, the thicker, more opaque and faster-blinking the border.
