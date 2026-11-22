@@ -28,7 +28,7 @@ jobs:
       - name: Unit tests
         run: python -m pytest
 
-      - name: Selftest from source (real Windows: monitors, overlay windows, settings window)
+      - name: "Selftest from source (monitors, overlay windows, settings window)"
         continue-on-error: true
         run: python -m inside_voice --selftest
 
