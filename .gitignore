@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Build output
+build/
+dist/
+Output/
+*.spec.bak
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

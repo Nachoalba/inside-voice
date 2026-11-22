@@ -1,0 +1,95 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to attach the installer to a release
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Unit tests
+        run: python -m pytest
+
+      - name: Selftest from source (real Windows: monitors, overlay windows, settings window)
+        continue-on-error: true
+        run: python -m inside_voice --selftest
+
+      - name: Build InsideVoice.exe
+        run: python -m PyInstaller --noconfirm inside-voice.spec
+
+      - name: Selftest of the built exe
+        continue-on-error: true
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath dist\InsideVoice\InsideVoice.exe -ArgumentList '--selftest','--out','selftest-exe.txt' -Wait -PassThru
+          if (Test-Path selftest-exe.txt) { Get-Content selftest-exe.txt } else { Write-Host "no selftest output" }
+          Write-Host "exit code: $($p.ExitCode)"
+          if ($p.ExitCode -ne 0) { exit 1 }
+
+      - name: Get version
+        id: ver
+        shell: pwsh
+        run: |
+          $v = python -c "from inside_voice import __version__; print(__version__)"
+          "version=$v" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          Write-Host "version $v"
+
+      - name: Install Inno Setup if missing
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) {
+            choco install innosetup -y --no-progress
+          }
+
+      - name: Build installer
+        shell: pwsh
+        env:
+          IV_VERSION: ${{ steps.ver.outputs.version }}
+        run: |
+          & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" installer\inside-voice.iss
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+
+      - name: Portable zip
+        shell: pwsh
+        run: Compress-Archive -Path dist\InsideVoice -DestinationPath dist-installer\InsideVoice-portable-${{ steps.ver.outputs.version }}.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: InsideVoice-${{ steps.ver.outputs.version }}
+          path: dist-installer/*
+          if-no-files-found: error
+
+      - name: Publish release (tags only)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist-installer/*
+          generate_release_notes: true
+
+  logic-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy Pillow pytest
+      - run: python -m pytest
