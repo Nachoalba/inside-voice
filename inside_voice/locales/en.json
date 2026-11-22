@@ -126,5 +126,8 @@
   "wiz.result": "The alert will start at {thr} dB, with {step} dB between levels.\n\nYour normal voice peaks around {normal} dB and your loud voice around {loud} dB.\n\nTalk now to try it: the bar shows the new levels.",
   "wiz.too_close": "Your normal and loud voice were very similar. You can accept this anyway, or redo it talking noticeably louder in step 2.",
   "wiz.accept": "Use these values",
-  "wiz.redo": "Redo"
+  "wiz.redo": "Redo",
+  "about.coffee": "Buy me a coffee ☕",
+  "about.coffee_help": "Free and open source. If it is useful to you, you can support its development.",
+  "about.license": "GPL-3.0 licence · Open source"
 }

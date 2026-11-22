@@ -3,11 +3,12 @@ from __future__ import annotations
 
 import time
 import tkinter as tk
+import webbrowser
 from datetime import datetime
 from tkinter import filedialog, messagebox, ttk
 from typing import Dict, List, Optional
 
-from .. import __version__
+from .. import DONATE_URL, __version__
 from ..audio import list_input_devices
 from ..config import (BLINK_MODES, BORDER_STYLES, LANGUAGES, MAX_BLINK_HZ, MAX_LEVELS, Config,
                       hhmm_to_minutes, normalize_hhmm)
@@ -377,7 +378,15 @@ class SettingsWindow:
         about.grid(row=2, column=0, sticky="ew", padx=10, pady=4)
         ttk.Label(about, text=f"Inside Voice {__version__}", font=("Segoe UI", 11, "bold")).grid(
             row=0, column=0, sticky="w", padx=8, pady=(6, 0))
-        ttk.Label(about, text=tr("app.slogan")).grid(row=1, column=0, sticky="w", padx=8, pady=(0, 6))
+        ttk.Label(about, text=tr("app.slogan")).grid(row=1, column=0, sticky="w", padx=8, pady=(0, 2))
+        ttk.Label(about, text=tr("about.license"), foreground="#666666").grid(
+            row=2, column=0, sticky="w", padx=8, pady=(0, 6))
+        if DONATE_URL:
+            ttk.Label(about, text=tr("about.coffee_help"), foreground="#666666", wraplength=640).grid(
+                row=3, column=0, sticky="w", padx=8)
+            ttk.Button(about, text=tr("about.coffee"),
+                       command=lambda: webbrowser.open(DONATE_URL)).grid(
+                row=4, column=0, sticky="w", padx=8, pady=(4, 8))
 
     # ------------------------------------------------------------- helpers
     def _update_calib_label(self) -> None:

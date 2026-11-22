@@ -126,5 +126,8 @@
   "wiz.result": "El aviso empezará en {thr} dB, con {step} dB entre niveles.\n\nTu voz normal llega a unos {normal} dB y tu voz alta a unos {loud} dB.\n\nHabla ahora para probarlo: la barra muestra los nuevos niveles.",
   "wiz.too_close": "Tu voz normal y la alta fueron muy parecidas. Puedes aceptarlo igualmente o repetirlo hablando claramente más alto en el paso 2.",
   "wiz.accept": "Usar estos valores",
-  "wiz.redo": "Repetir"
+  "wiz.redo": "Repetir",
+  "about.coffee": "Invítame a un café ☕",
+  "about.coffee_help": "Es gratis y de código abierto. Si te resulta útil, puedes apoyar su desarrollo.",
+  "about.license": "Licencia GPL-3.0 · Código abierto"
 }

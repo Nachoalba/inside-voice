@@ -80,4 +80,18 @@ Mira [docs/ROADMAP.md](docs/ROADMAP.md): temas por juego con marcos y animacione
 
 ## Licencia
 
-Todavía no se ha elegido licencia; por ahora, todos los derechos reservados.
+Inside Voice es software libre, publicado bajo la **Licencia Pública General de GNU v3.0 o posterior** (ver [LICENSE](LICENSE)).
+Puedes usarlo, estudiarlo, compartirlo y modificarlo; si distribuyes una versión modificada debe mantener la misma
+licencia y su código fuente disponible.
+
+## Política de firma de código
+
+Windows puede mostrar el aviso de *SmartScreen* ("Windows protegió su PC") con descargas nuevas sin firmar. Pulsa
+**Más información → Ejecutar de todos modos**. Las versiones las compila automáticamente GitHub Actions a partir del
+código de este repositorio y no contienen nada más. Se está solicitando la firma gratuita a la SignPath Foundation;
+esta sección describirá la política de firma cuando se apruebe.
+
+## Apoyo
+
+Inside Voice es gratis. Si te resulta útil, puedes apoyar su desarrollo desde la pestaña *General → Acerca de* de la
+app (botón del café, cuando se active).

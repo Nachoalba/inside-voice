@@ -91,4 +91,18 @@ See [docs/ROADMAP.md](docs/ROADMAP.md): per-game themes with their own frames an
 
 ## License
 
-No license has been chosen yet; all rights reserved for now.
+Inside Voice is free software, released under the **GNU General Public License v3.0 or later** (see [LICENSE](LICENSE)).
+You can use, study, share and modify it; if you distribute a modified version it must stay under the same licence
+with its source code available.
+
+## Code signing policy
+
+Windows may show a *SmartScreen* warning ("Windows protected your PC") with new, unsigned downloads. Click
+**More info → Run anyway**. Releases are built automatically by GitHub Actions from the source in this repository
+and contain nothing else. Free code signing is being requested from the SignPath Foundation; this section will
+describe the signing policy once it is approved.
+
+## Support
+
+Inside Voice is free. If it is useful to you, you can support its development from the *General → About* tab of the
+app (coffee button, once enabled).
