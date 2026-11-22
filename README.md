@@ -105,4 +105,4 @@ describe the signing policy once it is approved.
 ## Support
 
 Inside Voice is free. If it is useful to you, you can support its development from the *General → About* tab of the
-app (coffee button, once enabled).
+app (coffee button) or at [ko-fi.com/nachoalba](https://ko-fi.com/nachoalba).

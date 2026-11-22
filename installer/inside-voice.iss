@@ -6,7 +6,7 @@
 #define MyAppVersion GetEnv("IV_VERSION")
 #if MyAppVersion == ""
   #undef MyAppVersion
-  #define MyAppVersion "0.1.1"
+  #define MyAppVersion "0.1.2"
 #endif
 
 [Setup]
@@ -37,6 +37,8 @@ Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 [CustomMessages]
 english.AutoStart=Start Inside Voice with Windows (in the tray)
 spanish.AutoStart=Iniciar Inside Voice con Windows (en la bandeja)
+english.Coffee=Buy me a coffee (opens Ko-fi in your browser)
+spanish.Coffee=Invítame a un café (abre Ko-fi en el navegador)
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
@@ -54,6 +56,8 @@ Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: 
 
 [Run]
 Filename: "{app}\{#MyAppExe}"; Description: "{cm:LaunchProgram,{#MyAppName}}"; Flags: nowait postinstall skipifsilent
+
+Filename: "https://ko-fi.com/nachoalba"; Description: "{cm:Coffee}"; Flags: shellexec postinstall skipifsilent unchecked
 
 [UninstallRun]
 Filename: "{sys}\taskkill.exe"; Parameters: "/F /IM {#MyAppExe}"; Flags: runhidden; RunOnceId: "StopInsideVoice"

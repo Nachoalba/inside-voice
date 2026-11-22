@@ -94,4 +94,4 @@ esta sección describirá la política de firma cuando se apruebe.
 ## Apoyo
 
 Inside Voice es gratis. Si te resulta útil, puedes apoyar su desarrollo desde la pestaña *General → Acerca de* de la
-app (botón del café, cuando se active).
+app (botón del café) o en [ko-fi.com/nachoalba](https://ko-fi.com/nachoalba).
