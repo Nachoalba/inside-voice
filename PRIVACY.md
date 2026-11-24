@@ -28,7 +28,8 @@ Inside Voice does not share data with anyone, because it does not collect any.
 
 ## Contact
 
-For questions about this policy, open an issue at https://github.com/Nachoalba/inside-voice/issues
+For questions about this policy, write to nachoalba@gmail.com or open an issue at
+https://github.com/Nachoalba/inside-voice/issues
 
 ## Changes
 
@@ -63,7 +64,8 @@ Inside Voice no comparte datos con nadie, porque no recoge ninguno.
 
 ## Contacto
 
-Para dudas sobre esta política, abre una incidencia en https://github.com/Nachoalba/inside-voice/issues
+Para dudas sobre esta política, escribe a nachoalba@gmail.com o abre una incidencia en
+https://github.com/Nachoalba/inside-voice/issues
 
 ## Cambios
 
